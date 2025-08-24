@@ -2,6 +2,7 @@
 import HomePage from '../pages/home.f7';
 import AboutPage from '../pages/about.f7';
 import FormPage from '../pages/form.f7';
+import ProfilePage from '../pages/profile.f7';
 
 
 import DynamicRoutePage from '../pages/dynamic-route.f7';
@@ -21,8 +22,10 @@ var routes = [
     path: '/form/',
     component: FormPage,
   },
-
-
+  {
+    path: '/profile/',
+    component: ProfilePage,
+  },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,

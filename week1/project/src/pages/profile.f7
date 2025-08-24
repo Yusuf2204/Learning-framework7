@@ -1,5 +1,5 @@
 <template>
-<div class="page">
+<div class="page" data-name="profile">
   <div class="navbar">
     <div class="navbar-bg"></div>
     <div class="navbar-inner sliding">
@@ -9,19 +9,26 @@
           <span class="if-not-md">Back</span>
         </a>
       </div>
-      <div class="title">Not found</div>
+      <div class="title">Profile</div>
     </div>
   </div>
   <div class="page-content">
-    <div class="block block-strong inset">
-      <p>Sorry</p>
-      <p>Requested content not found.</p>
+    <div class="block-title">My Profile</div>
+    <div class="block">
+      <ul>
+        <li>Name: ${name}</li>
+        <li>Age: ${age}</li>
+        <li>Gender: ${gender}</li>
+      </ul>
     </div>
   </div>
 </div>
 </template>
 <script>
-export default () => {
+export default (props) => {
+  let name = 'John Doe';
+  let age = 25;
+  let gender = 'male';
   return $render;
 };
 </script>
