@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  framework7:
+    build:
+      context: ./docker
+    container_name: framework7-dev
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "5173:5173"     # default vite server port
+    tty: true
+    networks:
+      - yournetwork
+
+networks:
+  yournetwork:
+    external: true
