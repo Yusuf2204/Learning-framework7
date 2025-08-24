@@ -38,3 +38,17 @@ Buat aplikasi sederhana bernama **`hello-f7`** di folder `project/` dengan keten
 ---
 
 ## 📦 Struktur Folder
+week1/
+├── README.md
+└── project/
+└── hello-f7/
+├── package.json
+├── src/
+│ ├── pages/
+│ │ ├── home.f7.html
+│ │ └── about.f7.html
+│ ├── app.js
+│ ├── routes.js
+│ └── ...
+└── public/
+
