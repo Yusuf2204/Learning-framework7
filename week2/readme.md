@@ -1,4 +1,4 @@
-# 📚 Week 2 - Framework7 Basics
+# 📚 Week 2 - UI Basics
 
 Pada minggu ini kita mempelajari **komponen dasar Framework7** dan bagaimana menggunakannya dalam sebuah project.
 
