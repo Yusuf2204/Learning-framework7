@@ -1,0 +1,136 @@
+<template>
+  <div class="page" data-name="profile">
+    <div class="navbar">
+      <div class="navbar-bg"></div><div class="navbar-inner sliding">
+      <div class="left"><a href="/profile" class="link"><span>Profile</span></a></div>
+      <div class="title">Week 2 - Profile</div>
+    </div></div>
+    <div class="page-content">
+      <div class="block-title">My Profile</div>
+      
+      <div class="card">
+        <div class="card-header">Profile Info</div>
+             <div class="card-content card-content-padding">
+                <p><b>Name:</b> ${profile.name}</p>
+                <p><b>Age:</b> ${profile.age}</p>
+                <p><b>Gender:</b> ${profile.gender}</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="link" @click=${openPopup}>Edit Profile</a>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+export default (props, context) => {
+  const { $h, $f7, $update } = context;
+
+  let profile = {
+    name: "John Doe",
+    age: 25,
+    gender: "Male"
+  };
+
+  const toast = $f7.toast.create({
+    text: "Profile updated!",
+    position: "center",
+    closeTimeout: 1500
+  });
+
+
+  const openPopup = () => $f7.popup.open("#edit-profile-popup");
+
+  const saveProfile = () => {
+    const formData = $f7.form.convertToData("#profile-form");
+    
+    // validasi
+    if (!formData.name) {
+        $f7.dialog.alert("Name cannot be empty");
+        return;
+    }
+
+    if (!formData.age || isNaN(formData.age)) {
+        $f7.dialog.alert("Age must be a number");
+        return;
+    }
+
+    profile = formData;
+    $f7.popup.close("#edit-profile-popup");
+    $update();
+    toast.open();
+  };
+
+  return () => $h`
+    <div class="page" data-name="profile">
+      <div class="navbar"><div class="navbar-bg"></div><div class="navbar-inner sliding">
+        <div class="left"><a href="/profile" class="link">Profile</a></div>
+        <div class="title">Week 2 - Profile</div>
+      </div></div>
+
+      <div class="page-content">
+        <div class="block-title">My Profile</div>
+        <div class="block">
+          <ul>
+            <li><b>Name:</b> ${profile.name}</li>
+            <li><b>Age:</b> ${profile.age}</li>
+            <li><b>Gender:</b> ${profile.gender}</li>
+          </ul>
+        </div>
+        <div class="block"><a href="#" class="button button-fill" @click=${openPopup}>Edit Profile</a></div>
+      </div>
+
+      <div class="popup" id="edit-profile-popup">
+        <div class="view">
+          <div class="page">
+            <div class="navbar"><div class="navbar-bg"></div><div class="navbar-inner sliding">
+              <div class="left"><a href="#" class="link popup-close">Close</a></div>
+              <div class="title">Edit Profile</div>
+            </div></div>
+
+            <div class="page-content">
+              <form class="list form-store-data" id="profile-form">
+                <ul>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Name</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="name" value="${profile.name}" />
+                        <span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Age</div>
+                      <div class="item-input-wrap">
+                        <input type="number" name="age" value="${profile.age}" />
+                        <span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Gender</div>
+                      <div class="item-input-wrap">
+                        <input type="text" name="gender" value="${profile.gender}" />
+                        <span class="input-clear-button"></span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </form>
+              <div class="block">
+                <a href="#" class="button button-fill" @click=${saveProfile}>Save</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+};
+</script>

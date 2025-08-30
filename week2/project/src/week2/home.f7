@@ -1,0 +1,19 @@
+<template>
+  <div class="page" data-name="home">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left"><a href="/" class="link"><span>Home</span></a></div>
+        <div class="title">Week 2 - Home</div>
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="block-title">Welcome</div>
+      <div class="block">
+        <p>Ini halaman Home.</p>
+        <p>Gunakan tabbar di bawah untuk pindah ke Profile.</p>
+      </div>
+    </div>
+  </div>
+</template>

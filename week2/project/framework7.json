@@ -1,0 +1,18 @@
+{
+  "cwd": "/var/www/html/week2/project",
+  "type": [
+    "web"
+  ],
+  "name": "week2-ui-component",
+  "framework": "core",
+  "template": "single-view",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkMode": false,
+    "iconFonts": true
+  },
+  "customBuild": false
+}

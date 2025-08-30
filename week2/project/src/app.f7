@@ -1,0 +1,19 @@
+<template>
+  <div id="app">
+    <div class="statusbar"></div>
+
+    <div class="views tabs">
+      <!-- Tabbar Global -->
+      <div class="toolbar tabbar toolbar-bottom">
+        <div class="toolbar-inner">
+            <a href="#tab1" class="tab-link tab-link-active">Home</a>
+            <a href="#tab2" class="tab-link">Profile</a>
+        </div>
+      </div>
+
+      <div id="tab1" class="view tab tab-active view-init" data-url="/"></div>
+      <div id="tab2" class="view tab view-init" data-url="/profile"></div>
+
+    </div>
+  </div>
+</template>
